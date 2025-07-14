@@ -1,0 +1,178 @@
+[gd_scene load_steps=6 format=3 uid="uid://bv1ttxqsh5uyn"]
+
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://Vamp-Surv-Clone/addons/proto_controller/proto_controller.tscn" id="1_eynem"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eynem"]
+sky_top_color = Color(0.237496, 0.460538, 0.693233, 1)
+sky_horizon_color = Color(0.61175, 0.65976, 0.708934, 1)
+ground_horizon_color = Color(0.61175, 0.65976, 0.708934, 1)
+
+[sub_resource type="Sky" id="Sky_4ice2"]
+sky_material = SubResource("ProceduralSkyMaterial_eynem")
+
+[sub_resource type="Environment" id="Environment_vywp5"]
+background_mode = 2
+sky = SubResource("Sky_4ice2")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bq10m"]
+albedo_color = Color(0.351563, 0.351563, 0.351563, 1)
+
+[node name="main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vywp5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866024, -0.432052, 0.251662, 0.00166268, 0.50083, 0.865544, -0.5, 0.75, -0.433013, 0, 29.7321, 0)
+shadow_enabled = true
+
+[node name="map" type="Node3D" parent="."]
+
+[node name="structure_map" type="CSGCombiner3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 22.994)
+metadata/_edit_lock_ = true
+
+[node name="tree" type="CSGCylinder3D" parent="map/structure_map"]
+metadata/_edit_lock_ = true
+
+[node name="building" type="CSGBox3D" parent="map/structure_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -22.994)
+use_collision = true
+size = Vector3(10, 3, 10)
+metadata/_edit_lock_ = true
+
+[node name="building2" type="CSGBox3D" parent="map/structure_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.6468, -0.5, 9.85048)
+use_collision = true
+size = Vector3(10, 3, 10)
+metadata/_edit_lock_ = true
+
+[node name="building3" type="CSGBox3D" parent="map/structure_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.039, -0.5, 0.281)
+use_collision = true
+size = Vector3(10, 3, 10)
+metadata/_edit_lock_ = true
+
+[node name="building4" type="CSGBox3D" parent="map/structure_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.4496, -0.5, -60.8845)
+use_collision = true
+size = Vector3(10, 3, 10)
+metadata/_edit_lock_ = true
+
+[node name="building5" type="CSGBox3D" parent="map/structure_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.1775, -0.5, -39.394)
+use_collision = true
+size = Vector3(10, 3, 10)
+metadata/_edit_lock_ = true
+
+[node name="building6" type="CSGBox3D" parent="map/structure_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.091, -0.5, -55.984)
+use_collision = true
+size = Vector3(10, 3, 10)
+metadata/_edit_lock_ = true
+
+[node name="building7" type="CSGBox3D" parent="map/structure_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.073, -0.5, -32.3167)
+use_collision = true
+size = Vector3(10, 3, 10)
+metadata/_edit_lock_ = true
+
+[node name="building8" type="CSGBox3D" parent="map/structure_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.4174, -0.5, 13.4884)
+use_collision = true
+size = Vector3(10, 3, 10)
+metadata/_edit_lock_ = true
+
+[node name="building9" type="CSGBox3D" parent="map/structure_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7277, -0.5, 13.1792)
+use_collision = true
+size = Vector3(10, 3, 10)
+metadata/_edit_lock_ = true
+
+[node name="building10" type="CSGBox3D" parent="map/structure_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.8725, -0.5, -11.7866)
+use_collision = true
+size = Vector3(10, 3, 10)
+metadata/_edit_lock_ = true
+
+[node name="building11" type="CSGBox3D" parent="map/structure_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.389, -0.5, -51.1806)
+use_collision = true
+size = Vector3(10, 3, 10)
+metadata/_edit_lock_ = true
+
+[node name="tree2" type="CSGCylinder3D" parent="map/structure_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.6496, 0, -40.8247)
+metadata/_edit_lock_ = true
+
+[node name="tree3" type="CSGCylinder3D" parent="map/structure_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.9442, 0, -23.6762)
+metadata/_edit_lock_ = true
+
+[node name="tree4" type="CSGCylinder3D" parent="map/structure_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6, 0, -13.2582)
+metadata/_edit_lock_ = true
+
+[node name="tree5" type="CSGCylinder3D" parent="map/structure_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0379, 0, 12.5203)
+metadata/_edit_lock_ = true
+
+[node name="tree6" type="CSGCylinder3D" parent="map/structure_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.0426, 0, 13.111)
+metadata/_edit_lock_ = true
+
+[node name="tree7" type="CSGCylinder3D" parent="map/structure_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.0279, 0, 6.06396)
+metadata/_edit_lock_ = true
+
+[node name="tree8" type="CSGCylinder3D" parent="map/structure_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0867, 0, -8.27114)
+metadata/_edit_lock_ = true
+
+[node name="tree9" type="CSGCylinder3D" parent="map/structure_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.659, 0, -24.8607)
+metadata/_edit_lock_ = true
+
+[node name="tree10" type="CSGCylinder3D" parent="map/structure_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.7053, 0, 15.3495)
+metadata/_edit_lock_ = true
+
+[node name="tree11" type="CSGCylinder3D" parent="map/structure_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.3547, 0, -11.6585)
+metadata/_edit_lock_ = true
+
+[node name="tree12" type="CSGCylinder3D" parent="map/structure_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0379, 0, -41.7176)
+metadata/_edit_lock_ = true
+
+[node name="tree13" type="CSGCylinder3D" parent="map/structure_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.1911, 0, -43.5844)
+metadata/_edit_lock_ = true
+
+[node name="tree14" type="CSGCylinder3D" parent="map/structure_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7371, 0, 19.5633)
+metadata/_edit_lock_ = true
+
+[node name="tree15" type="CSGCylinder3D" parent="map/structure_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8612, 0, -53.9832)
+metadata/_edit_lock_ = true
+
+[node name="tree16" type="CSGCylinder3D" parent="map/structure_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.8237, 0, -12.5163)
+metadata/_edit_lock_ = true
+
+[node name="tree17" type="CSGCylinder3D" parent="map/structure_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.3745, 0, -37.6166)
+metadata/_edit_lock_ = true
+
+[node name="floor" type="CSGBox3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0812607, 0, 0)
+use_collision = true
+size = Vector3(100, 1, 100)
+material = SubResource("StandardMaterial3D_bq10m")
+metadata/_edit_lock_ = true
+
+[node name="ProtoController" parent="." instance=ExtResource("1_eynem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.94361, 0.5, 14.7718)
