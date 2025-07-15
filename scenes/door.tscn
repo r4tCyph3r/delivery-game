@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b2f8kkst7dtki"]
 
-[ext_resource type="Script" uid="uid://c85f6vd5uveeu" path="res://Vamp-Surv-Clone/scenes/door.gd" id="1_s2cio"]
+[ext_resource type="Script" uid="uid://c85f6vd5uveeu" path="res://Vamp-Surv-Clone/scripts/door.gd" id="1_s2cio"]
 [ext_resource type="PackedScene" uid="uid://x25hm2q11u0x" path="res://Vamp-Surv-Clone/scenes/interaction/interaction_area.tscn" id="2_dagxi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dagxi"]
@@ -17,7 +17,6 @@ size = Vector3(1.5, 2.7, 0.3)
 material = SubResource("StandardMaterial3D_dagxi")
 
 [node name="interaction_area" parent="." instance=ExtResource("2_dagxi")]
-action_name = "interact"
 
 [node name="door_hitbox" type="CollisionShape3D" parent="interaction_area"]
 shape = SubResource("BoxShape3D_w3mbh")

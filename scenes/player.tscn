@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://do4lnwejtvs6p"]
 
-[ext_resource type="Script" uid="uid://d0x6jibqdasw0" path="res://Vamp-Surv-Clone/scenes/player.gd" id="1_6b8fq"]
+[ext_resource type="Script" uid="uid://d0x6jibqdasw0" path="res://Vamp-Surv-Clone/scripts/player.gd" id="1_6b8fq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gxk6p"]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://x25hm2q11u0x"]
 
-[ext_resource type="Script" uid="uid://c6bda2gc6jloq" path="res://Vamp-Surv-Clone/scenes/interaction/interaction_area.gd" id="1_7q8gk"]
+[ext_resource type="Script" uid="uid://c6bda2gc6jloq" path="res://Vamp-Surv-Clone/scripts/interaction_area.gd" id="1_7q8gk"]
 
 [node name="interaction_area" type="Area3D"]
 collision_layer = 0
