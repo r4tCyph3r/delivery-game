@@ -7,7 +7,7 @@ var interact: Callable = func():
 	pass
 
 func _on_body_entered(body: Node3D):
-	interaction_manager.register_area(self)
+	InteractionManager.register_area(self)
 
 func _on_body_exited(body: Node3D):
-	interaction_manager.unregister_area(self)
+	InteractionManager.unregister_area(self)
