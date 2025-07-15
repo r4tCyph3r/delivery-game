@@ -42,15 +42,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 
-[node name="RayCast3D" type="RayCast3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7, 0)
-
 [node name="HUD" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1920.0
-offset_bottom = 535.0
-scale = Vector2(0.599152, 1.21355)
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 1
 
 [node name="crosshair" type="TextureRect" parent="HUD"]
 layout_mode = 1
@@ -59,11 +56,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -52.0
-offset_top = -52.0
-offset_right = 52.0
-offset_bottom = 52.0
+offset_left = -51.0
+offset_top = -51.0
+offset_right = 1.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1, 0.506)
+scale = Vector2(2, 2)
 texture = ExtResource("2_dungv")
+stretch_mode = 5

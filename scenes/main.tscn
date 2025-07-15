@@ -59,4 +59,4 @@ material = SubResource("StandardMaterial3D_bq10m")
 metadata/_edit_lock_ = true
 
 [node name="ProtoController" parent="." instance=ExtResource("1_eynem")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.94361, 0.5, 14.7718)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.32064, 0.500001, 15.5614)
