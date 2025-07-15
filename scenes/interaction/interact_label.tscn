@@ -7,6 +7,7 @@ viewport_path = NodePath("SubViewport")
 
 [node name="interact_label" type="Sprite3D"]
 billboard = 2
+no_depth_test = true
 texture = SubResource("ViewportTexture_a4obn")
 script = ExtResource("1_le8c8")
 

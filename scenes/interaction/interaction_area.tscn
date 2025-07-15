@@ -1,11 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://x25hm2q11u0x"]
+[gd_scene load_steps=4 format=3 uid="uid://x25hm2q11u0x"]
 
 [ext_resource type="Script" uid="uid://c6bda2gc6jloq" path="res://Vamp-Surv-Clone/scripts/interaction_area.gd" id="1_7q8gk"]
+[ext_resource type="PackedScene" uid="uid://b6wg1dd4s7q61" path="res://Vamp-Surv-Clone/scenes/interaction/interact_label.tscn" id="2_8wybb"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_26n3k"]
+viewport_path = NodePath("SubViewport")
 
 [node name="interaction_area" type="Area3D"]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 8
 script = ExtResource("1_7q8gk")
+
+[node name="interact_label" parent="." instance=ExtResource("2_8wybb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0957905, 0, -0.491654)
+texture = SubResource("ViewportTexture_26n3k")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

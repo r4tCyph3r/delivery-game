@@ -4,16 +4,16 @@ class_name interaction_manager
 # Identifies the player node using groups
 # Identifies the label child
 @onready var player = get_tree().get_first_node_in_group("player")
-@onready var label = $Label
-
-# Sets the initial text of the interact to always be the same
-const base_text = "[E] to "
 
 # Defines Variables
 # an array storing interaction areas that are instanciated
 # a boolean to determine if an entity can be interacted with
 var active_areas: Array = []
 var can_interact: bool = true
+
+## To change how my interactions work I will need to do a few things
+# 1 - Raycast from the player to determine what they are looking at
+# 2 - Modify existing script to look for player 
 
 ## Two functions to determine what areas are close enough that the user can interact with them
 # Appends the array "active_areas" with areas that the user can interact with
@@ -31,10 +31,10 @@ func unregister_area(area: interaction_area):
 func _process(delta):
 	if active_areas.size() > 0 && can_interact:
 		active_areas.sort_custom(_sort_by_distance_to_player)
-		label.text = base_text + active_areas[0].action_name
-		label.show()
-	else:
-		label.hide()
+#		label.text = base_text + active_areas[0].action_name
+#		label.show()
+#	else:
+#		label.hide()
 
 # Checks distance of 2 input areas and returns the shorter distance input
 # Used for handling which interactable is displayed

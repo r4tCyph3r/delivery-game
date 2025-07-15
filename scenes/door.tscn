@@ -1,17 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2f8kkst7dtki"]
+[gd_scene load_steps=5 format=3 uid="uid://b2f8kkst7dtki"]
 
 [ext_resource type="Script" uid="uid://c85f6vd5uveeu" path="res://Vamp-Surv-Clone/scripts/door.gd" id="1_s2cio"]
 [ext_resource type="PackedScene" uid="uid://x25hm2q11u0x" path="res://Vamp-Surv-Clone/scenes/interaction/interaction_area.tscn" id="2_dagxi"]
-[ext_resource type="PackedScene" uid="uid://b6wg1dd4s7q61" path="res://Vamp-Surv-Clone/scenes/interaction/interact_label.tscn" id="3_w3mbh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dagxi"]
 albedo_color = Color(0.374009, 0.241641, 0.0854232, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w3mbh"]
 size = Vector3(1.5, 2.7, 0.397461)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_hw0bc"]
-viewport_path = NodePath("SubViewport")
 
 [node name="door" type="Node3D" groups=["interactable"]]
 script = ExtResource("1_s2cio")
@@ -21,13 +17,9 @@ size = Vector3(1.5, 2.7, 0.3)
 material = SubResource("StandardMaterial3D_dagxi")
 
 [node name="interaction_area" parent="." instance=ExtResource("2_dagxi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.476541, 0.364966)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.476541, 0.355486)
 collision_layer = 4
 
 [node name="door_hitbox" type="CollisionShape3D" parent="interaction_area"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.462609, -0.36)
 shape = SubResource("BoxShape3D_w3mbh")
-
-[node name="interact_label" parent="." instance=ExtResource("3_w3mbh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00422651, 0.312633, 0.212265)
-texture = SubResource("ViewportTexture_hw0bc")
