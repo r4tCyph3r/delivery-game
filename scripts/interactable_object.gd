@@ -1,3 +1,6 @@
+## Overarching class for all interactable objects
+# currently used by postbox, package and door
+
 class_name interactable_object
 extends Node3D
 
