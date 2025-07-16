@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bb63o5erbvbyv"]
 
-[ext_resource type="Script" uid="uid://6unm4emb6j2n" path="res://Vamp-Surv-Clone/package.gd" id="1_s18mn"]
+[ext_resource type="Script" uid="uid://6unm4emb6j2n" path="res://Vamp-Surv-Clone/scripts/package.gd" id="1_s18mn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s18mn"]
 albedo_color = Color(0.427852, 1, 0.999621, 1)
@@ -10,7 +10,7 @@ size = Vector3(0.539307, 0.559692, 0.570557)
 
 [node name="package" type="RigidBody3D"]
 collision_layer = 4
-collision_mask = 3
+collision_mask = 7
 script = ExtResource("1_s18mn")
 interact_prompt = "pickup"
 can_interact = true

@@ -1,28 +1,88 @@
-[gd_scene load_steps=4 format=3 uid="uid://do4lnwejtvs6p"]
+[gd_scene load_steps=8 format=3 uid="uid://qacyjwmukelh"]
 
-[ext_resource type="Script" uid="uid://d0x6jibqdasw0" path="res://Vamp-Surv-Clone/scripts/player.gd" id="1_6b8fq"]
+[ext_resource type="PackedScene" uid="uid://dfgy8cgabcha0" path="res://Vamp-Surv-Clone/scenes/interaction/interaction_controller.tscn" id="3_67cmi"]
+[ext_resource type="Script" uid="uid://6m7gm21t42mr" path="res://Vamp-Surv-Clone/scripts/player_controller.gd" id="3_gpkeg"]
+[ext_resource type="Texture2D" uid="uid://d0mgmiqn2uj7w" path="res://Vamp-Surv-Clone/asset_lib/hud/simple_dot.png" id="4_gpkeg"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gxk6p"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o1je1"]
+albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_6b8fq"]
-size = Vector3(1, 0.2, 1)
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_mylds"]
+radius = 0.4
+height = 1.8
 
-[node name="player" type="CharacterBody3D"]
-script = ExtResource("1_6b8fq")
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a2n77"]
+radius = 0.4
+height = 1.8
 
-[node name="hitbox_body" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_gxk6p")
+[sub_resource type="LabelSettings" id="LabelSettings_67cmi"]
+font_size = 32
 
-[node name="hitbox_feet" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.849491, 0)
-shape = SubResource("BoxShape3D_6b8fq")
+[node name="player" type="Node3D"]
 
-[node name="rotation_helper" type="Node3D" parent="."]
+[node name="player_controller" type="CharacterBody3D" parent="." groups=["player"]]
+script = ExtResource("3_gpkeg")
+can_sprint = true
+can_freefly = true
+input_left = "move_left"
+input_right = "move_right"
+input_forward = "move_forward"
+input_back = "move_backward"
+input_jump = "move_jump"
+input_sprint = "move_sprint"
+input_freefly = "move_freefly"
 
-[node name="camera" type="Camera3D" parent="rotation_helper"]
+[node name="Mesh" type="MeshInstance3D" parent="player_controller"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+material_override = SubResource("StandardMaterial3D_o1je1")
+cast_shadow = 0
+mesh = SubResource("CapsuleMesh_mylds")
 
-[node name="HUD" type="Control" parent="."]
+[node name="Collider" type="CollisionShape3D" parent="player_controller"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_a2n77")
+
+[node name="Head" type="Node3D" parent="player_controller"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="Camera3D" type="Camera3D" parent="player_controller/Head"]
+
+[node name="interaction_controller" parent="player_controller/Head/Camera3D" instance=ExtResource("3_67cmi")]
+
+[node name="HUD" type="Control" parent="player_controller"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="money_label" type="Label" parent="player_controller/HUD"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.0581597
+anchor_bottom = 0.0308642
+offset_right = 125.0
+offset_bottom = 32.0
+text = "Money: "
+label_settings = SubResource("LabelSettings_67cmi")
+metadata/_edit_use_anchors_ = true
+
+[node name="crosshair" type="TextureRect" parent="player_controller/HUD"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -27.0
+offset_right = -1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture = ExtResource("4_gpkeg")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
