@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" uid="uid://2pcr2hv3h64" path="res://Vamp-Surv-Clone/addons/proto_controller/proto_controller.gd" id="1_40fl8"]
-[ext_resource type="PackedScene" uid="uid://1ivwfew3yo41" path="res://Vamp-Surv-Clone/scenes/player_cast.tscn" id="2_8476e"]
+[ext_resource type="PackedScene" uid="uid://dfgy8cgabcha0" path="res://Vamp-Surv-Clone/scenes/interaction_controller.tscn" id="2_8476e"]
 [ext_resource type="Texture2D" uid="uid://g0q8dd24whrf" path="res://Vamp-Surv-Clone/asset_lib/hud/simple_crosshair.png" id="2_dungv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
@@ -43,8 +43,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 
-[node name="player_cast" parent="Head" instance=ExtResource("2_8476e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00118971, 0.0102229, 0)
+[node name="interaction_controller" parent="Head/Camera3D" instance=ExtResource("2_8476e")]
 
 [node name="HUD" type="Control" parent="."]
 layout_mode = 3

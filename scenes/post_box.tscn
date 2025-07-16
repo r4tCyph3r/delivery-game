@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr7x7hnkq8x1x"]
+
+[ext_resource type="Script" uid="uid://cjecmtbfg2gfr" path="res://Vamp-Surv-Clone/scripts/post_box.gd" id="1_tfqqq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bgewa"]
+size = Vector3(0.241943, 0.202148, 0.369385)
+
+[node name="post_box" type="StaticBody3D"]
+script = ExtResource("1_tfqqq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00329366, 0.320182, 0.00494645)
+shape = SubResource("BoxShape3D_bgewa")
+
+[node name="post_box_flower" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96046e-08, 0.305598, 0)
+size = Vector3(0.15, 0.17, 0.3)
+
+[node name="post_box_pole" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-08, 0, 0)
+size = Vector3(0.1, 0.5, 0.1)

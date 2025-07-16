@@ -1,4 +1,4 @@
 extends interactable_object
 
 func interact():
-	print("Epic Chungus")
+	print("I am postbox man")
