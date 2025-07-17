@@ -8,7 +8,7 @@ size = Vector3(1.53809, 2.74634, 0.330078)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dagxi"]
 albedo_color = Color(0.374009, 0.241641, 0.0854232, 1)
 
-[node name="door" type="StaticBody3D"]
+[node name="door" type="StaticBody3D" groups=["delivery_location"]]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_s2cio")
@@ -21,3 +21,5 @@ shape = SubResource("BoxShape3D_s2cio")
 [node name="door_texture" type="CSGBox3D" parent="."]
 size = Vector3(1.5, 2.7, 0.3)
 material = SubResource("StandardMaterial3D_dagxi")
+
+[connection signal="delivery_attempted" from="." to="." method="_on_delivery_attempted"]

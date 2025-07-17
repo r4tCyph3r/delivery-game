@@ -1,5 +1,8 @@
 extends interactable_object
 
+var address : int
+
+signal delivery_attempted
+
 func interact():
-	print("I am postbox man")
-	queue_free()
+	emit_signal("delivery_attempted")

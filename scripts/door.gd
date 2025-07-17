@@ -1,4 +1,8 @@
 extends interactable_object
 
+var address : int
+
+signal delivery_attempted
+
 func interact():
-	print("Epic Chungus")
+	emit_signal("delivery_attempted")
