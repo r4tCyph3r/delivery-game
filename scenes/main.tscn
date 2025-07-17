@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bv1ttxqsh5uyn"]
+[gd_scene load_steps=9 format=3 uid="uid://bv1ttxqsh5uyn"]
 
-[ext_resource type="PackedScene" uid="uid://b2f8kkst7dtki" path="res://Vamp-Surv-Clone/scenes/door.tscn" id="1_4ice2"]
 [ext_resource type="PackedScene" uid="uid://dpf1ehfg4oqrb" path="res://Vamp-Surv-Clone/scenes/GameManager.tscn" id="1_ti7qw"]
-[ext_resource type="PackedScene" uid="uid://cr7x7hnkq8x1x" path="res://Vamp-Surv-Clone/scenes/post_box.tscn" id="2_ky2vd"]
-[ext_resource type="PackedScene" uid="uid://bb63o5erbvbyv" path="res://Vamp-Surv-Clone/scenes/package.tscn" id="2_vywp5"]
+[ext_resource type="PackedScene" uid="uid://bc7rm6rmyp07n" path="res://Vamp-Surv-Clone/scenes/house.tscn" id="4_3pvrb"]
 [ext_resource type="PackedScene" uid="uid://qacyjwmukelh" path="res://Vamp-Surv-Clone/scenes/player.tscn" id="4_ky2vd"]
+[ext_resource type="PackedScene" uid="uid://bloov6poincp0" path="res://Vamp-Surv-Clone/scenes/package_spawnpoint.tscn" id="4_ti7qw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eynem"]
 sky_top_color = Color(0.237496, 0.460538, 0.693233, 1)
@@ -27,194 +26,50 @@ albedo_color = Color(0.191666, 0.352051, 0.24599, 1)
 
 [node name="GameManager" parent="." instance=ExtResource("1_ti7qw")]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.16248, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vywp5")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866024, -0.432052, 0.251662, 0.00166268, 0.50083, 0.865544, -0.5, 0.75, -0.433012, -106.057, 75.2909, 0)
+transform = Transform3D(-0.866024, -0.432052, 0.251662, 0.00166268, 0.50083, 0.865544, -0.5, 0.75, -0.433012, -106.057, 74.1284, 0)
 shadow_enabled = true
 
+[node name="player" parent="." instance=ExtResource("4_ky2vd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.676, 2.92283, 45.125)
+
 [node name="map" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.16248, -44.4595)
 
-[node name="structure_house" type="CSGCombiner3D" parent="map"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.643, 1.5, 44.9266)
-use_collision = true
-collision_mask = 5
+[node name="house" parent="map" instance=ExtResource("4_3pvrb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.7653, -0.089618, 63.0687)
 
-[node name="building" type="CSGBox3D" parent="map/structure_house"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.186432)
-use_collision = true
-size = Vector3(10, 5, 10)
-metadata/_edit_lock_ = true
+[node name="house2" parent="map" instance=ExtResource("4_3pvrb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.9655, -0.089618, 63.0687)
 
-[node name="door" parent="map/structure_house/building" instance=ExtResource("1_4ice2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.41839, 0.324638, 5.00608)
+[node name="house3" parent="map" instance=ExtResource("4_3pvrb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1768, -0.089618, 63.0687)
 
-[node name="structure_house2" type="CSGCombiner3D" parent="map"]
-transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -28.4649, 1.5, 25.4745)
-use_collision = true
-collision_mask = 5
+[node name="house4" parent="map" instance=ExtResource("4_3pvrb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.3687, -0.089618, 63.0687)
 
-[node name="building" type="CSGBox3D" parent="map/structure_house2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.186432)
-use_collision = true
-size = Vector3(10, 5, 10)
-metadata/_edit_lock_ = true
+[node name="house5" parent="map" instance=ExtResource("4_3pvrb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.01871, -0.089618, 63.0687)
 
-[node name="door" parent="map/structure_house2/building" instance=ExtResource("1_4ice2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.41839, -0.3341, 5.00608)
+[node name="house6" parent="map" instance=ExtResource("4_3pvrb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 55.7653, -0.089618, 80.0209)
 
-[node name="structure_house3" type="CSGCombiner3D" parent="map"]
-transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -17.2628, 1.5, 55.8447)
-use_collision = true
-collision_mask = 5
+[node name="house7" parent="map" instance=ExtResource("4_3pvrb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 43.9655, -0.089618, 80.0209)
 
-[node name="building" type="CSGBox3D" parent="map/structure_house3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.186432)
-use_collision = true
-size = Vector3(10, 5, 10)
-metadata/_edit_lock_ = true
+[node name="house8" parent="map" instance=ExtResource("4_3pvrb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 32.1768, -0.089618, 80.0209)
 
-[node name="door" parent="map/structure_house3/building" instance=ExtResource("1_4ice2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.418, -0.334, 5.006)
+[node name="house9" parent="map" instance=ExtResource("4_3pvrb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 20.3687, -0.089618, 80.0209)
 
-[node name="structure_house4" type="CSGCombiner3D" parent="map"]
-transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 15.5967, 1.5, 73.5191)
-use_collision = true
-collision_mask = 5
-
-[node name="building" type="CSGBox3D" parent="map/structure_house4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.186432)
-use_collision = true
-size = Vector3(10, 5, 10)
-metadata/_edit_lock_ = true
-
-[node name="door" parent="map/structure_house4/building" instance=ExtResource("1_4ice2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.418, -0.334, 5.006)
-
-[node name="structure_house5" type="CSGCombiner3D" parent="map"]
-transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 17.3392, 1.5, 32.6936)
-use_collision = true
-collision_mask = 5
-
-[node name="building" type="CSGBox3D" parent="map/structure_house5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.186432)
-use_collision = true
-size = Vector3(10, 5, 10)
-metadata/_edit_lock_ = true
-
-[node name="door" parent="map/structure_house5/building" instance=ExtResource("1_4ice2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.418, -0.334, 5.006)
-
-[node name="test_house" type="CSGCombiner3D" parent="map"]
-transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 65.0353, 1.5, 62.6091)
-use_collision = true
-collision_mask = 5
-
-[node name="building" type="CSGBox3D" parent="map/test_house"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.186432)
-use_collision = true
-size = Vector3(10, 5, 10)
-metadata/_edit_lock_ = true
-
-[node name="door" parent="map/test_house/building" instance=ExtResource("1_4ice2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.418, -0.334, 5.006)
-
-[node name="structure_house_postbox" type="CSGCombiner3D" parent="map"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -78.0955, 1.5, 75.2662)
-use_collision = true
-collision_mask = 5
-
-[node name="building" type="CSGBox3D" parent="map/structure_house_postbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0212059, 9.53674e-07, 0.0274773)
-use_collision = true
-size = Vector3(10, 5, 10)
-metadata/_edit_lock_ = true
-
-[node name="door" parent="map/structure_house_postbox/building" instance=ExtResource("1_4ice2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.41839, 0.324638, 5.00608)
-metadata/_edit_lock_ = true
-
-[node name="post_box" parent="map/structure_house_postbox/building" instance=ExtResource("2_ky2vd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67698, -0.5, 6.69015)
-metadata/_edit_lock_ = true
-
-[node name="structure_house_postbox2" type="CSGCombiner3D" parent="map"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -78.723, 1.5, 14.7137)
-use_collision = true
-collision_mask = 5
-
-[node name="building" type="CSGBox3D" parent="map/structure_house_postbox2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0212059, 9.53674e-07, 0.0274773)
-use_collision = true
-size = Vector3(10, 5, 10)
-metadata/_edit_lock_ = true
-
-[node name="door" parent="map/structure_house_postbox2/building" instance=ExtResource("1_4ice2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.41839, 0.324638, 5.00608)
-metadata/_edit_lock_ = true
-
-[node name="post_box" parent="map/structure_house_postbox2/building" instance=ExtResource("2_ky2vd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67698, -0.5, 6.69015)
-metadata/_edit_lock_ = true
-
-[node name="structure_house_postbox3" type="CSGCombiner3D" parent="map"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 30.8571, 1.5, 1.45051)
-use_collision = true
-collision_mask = 5
-
-[node name="building" type="CSGBox3D" parent="map/structure_house_postbox3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0212059, 9.53674e-07, 0.0274773)
-use_collision = true
-size = Vector3(10, 5, 10)
-metadata/_edit_lock_ = true
-
-[node name="door" parent="map/structure_house_postbox3/building" instance=ExtResource("1_4ice2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.41839, 0.324638, 5.00608)
-metadata/_edit_lock_ = true
-
-[node name="post_box" parent="map/structure_house_postbox3/building" instance=ExtResource("2_ky2vd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67698, -0.5, 6.69015)
-metadata/_edit_lock_ = true
-
-[node name="structure_house_postbox4" type="CSGCombiner3D" parent="map"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.2443, 1.5, 22.61)
-use_collision = true
-collision_mask = 5
-
-[node name="building" type="CSGBox3D" parent="map/structure_house_postbox4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0212059, 9.53674e-07, 0.0274773)
-use_collision = true
-size = Vector3(10, 5, 10)
-metadata/_edit_lock_ = true
-
-[node name="door" parent="map/structure_house_postbox4/building" instance=ExtResource("1_4ice2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.41839, 0.324638, 5.00608)
-metadata/_edit_lock_ = true
-
-[node name="post_box" parent="map/structure_house_postbox4/building" instance=ExtResource("2_ky2vd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67698, -0.5, 6.69015)
-metadata/_edit_lock_ = true
-
-[node name="test_house_postbox" type="CSGCombiner3D" parent="map"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.2388, 1.5, 63.0157)
-use_collision = true
-collision_mask = 5
-
-[node name="building" type="CSGBox3D" parent="map/test_house_postbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0212059, 9.53674e-07, 0.0274773)
-use_collision = true
-size = Vector3(10, 5, 10)
-metadata/_edit_lock_ = true
-
-[node name="door" parent="map/test_house_postbox/building" instance=ExtResource("1_4ice2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.41839, 0.324638, 5.00608)
-metadata/_edit_lock_ = true
-
-[node name="post_box" parent="map/test_house_postbox/building" instance=ExtResource("2_ky2vd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67698, -0.5, 6.69015)
-metadata/_edit_lock_ = true
+[node name="house10" parent="map" instance=ExtResource("4_3pvrb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8.01871, -0.089618, 80.0209)
 
 [node name="structure_post_office" type="CSGCombiner3D" parent="map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.0356, 0, 69.8954)
@@ -301,10 +156,5 @@ size = Vector3(200, 1, 114.194)
 material = SubResource("StandardMaterial3D_bq10m")
 metadata/_edit_lock_ = true
 
-[node name="player" parent="." instance=ExtResource("4_ky2vd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.676, 4.08531, 93.5109)
-
-[node name="package" parent="." instance=ExtResource("2_vywp5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.0095, 5.9278, 94.1953)
-
-[connection signal="collected" from="package" to="GameManager" method="_on_package_collected"]
+[node name="package_spawnpoint" parent="." instance=ExtResource("4_ti7qw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.8663, 3.48238, 49.5033)

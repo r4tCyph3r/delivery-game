@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bloov6poincp0"]
+
+[ext_resource type="Script" uid="uid://b8pv3inl2lec6" path="res://Vamp-Surv-Clone/scenes/package_spawnpoint.gd" id="1_iqxd0"]
+
+[node name="package_spawnpoint" type="Node3D" groups=["package_spawnpoints"]]
+script = ExtResource("1_iqxd0")
+is_active = true
+spawn_name = "depot"
+
+[node name="Marker3D" type="Marker3D" parent="."]

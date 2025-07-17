@@ -5,7 +5,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_bgewa"]
 size = Vector3(0.417725, 0.337891, 0.898438)
 
-[node name="post_box" type="StaticBody3D" groups=["delivery_location"]]
+[node name="post_box" type="StaticBody3D" groups=["delivery_interact"]]
 script = ExtResource("1_tfqqq")
 interact_prompt = "Interact"
 can_interact = true

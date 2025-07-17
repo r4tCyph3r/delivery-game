@@ -1,0 +1,295 @@
+[gd_scene load_steps=11 format=3 uid="uid://bv1ttxqsh5uyn"]
+
+[ext_resource type="PackedScene" uid="uid://b2f8kkst7dtki" path="res://Vamp-Surv-Clone/scenes/door.tscn" id="1_4ice2"]
+[ext_resource type="PackedScene" uid="uid://dpf1ehfg4oqrb" path="res://Vamp-Surv-Clone/scenes/GameManager.tscn" id="1_ti7qw"]
+[ext_resource type="PackedScene" uid="uid://cr7x7hnkq8x1x" path="res://Vamp-Surv-Clone/scenes/post_box.tscn" id="2_ky2vd"]
+[ext_resource type="PackedScene" uid="uid://bb63o5erbvbyv" path="res://Vamp-Surv-Clone/scenes/package.tscn" id="2_vywp5"]
+[ext_resource type="PackedScene" uid="uid://bc7rm6rmyp07n" path="res://Vamp-Surv-Clone/scenes/house_postbox.tscn" id="4_3pvrb"]
+[ext_resource type="PackedScene" uid="uid://qacyjwmukelh" path="res://Vamp-Surv-Clone/scenes/player.tscn" id="4_ky2vd"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eynem"]
+sky_top_color = Color(0.237496, 0.460538, 0.693233, 1)
+sky_horizon_color = Color(0.61175, 0.65976, 0.708934, 1)
+ground_horizon_color = Color(0.61175, 0.65976, 0.708934, 1)
+
+[sub_resource type="Sky" id="Sky_4ice2"]
+sky_material = SubResource("ProceduralSkyMaterial_eynem")
+
+[sub_resource type="Environment" id="Environment_vywp5"]
+background_mode = 2
+sky = SubResource("Sky_4ice2")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bq10m"]
+albedo_color = Color(0.191666, 0.352051, 0.24599, 1)
+
+[node name="main" type="Node3D"]
+
+[node name="GameManager" parent="." instance=ExtResource("1_ti7qw")]
+unique_name_in_owner = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vywp5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866024, -0.432052, 0.251662, 0.00166268, 0.50083, 0.865544, -0.5, 0.75, -0.433012, -106.057, 75.2909, 0)
+shadow_enabled = true
+
+[node name="map" type="Node3D" parent="."]
+
+[node name="structure_house" type="CSGCombiner3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.643, 1.5, 44.9266)
+use_collision = true
+collision_mask = 5
+
+[node name="building" type="CSGBox3D" parent="map/structure_house"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.186432)
+use_collision = true
+size = Vector3(10, 5, 10)
+metadata/_edit_lock_ = true
+
+[node name="door" parent="map/structure_house/building" instance=ExtResource("1_4ice2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.41839, 0.324638, 5.00608)
+
+[node name="structure_house2" type="CSGCombiner3D" parent="map"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -28.4649, 1.5, 25.4745)
+use_collision = true
+collision_mask = 5
+
+[node name="building" type="CSGBox3D" parent="map/structure_house2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.186432)
+use_collision = true
+size = Vector3(10, 5, 10)
+metadata/_edit_lock_ = true
+
+[node name="door" parent="map/structure_house2/building" instance=ExtResource("1_4ice2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.41839, -0.3341, 5.00608)
+
+[node name="structure_house3" type="CSGCombiner3D" parent="map"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -17.2628, 1.5, 55.8447)
+use_collision = true
+collision_mask = 5
+
+[node name="building" type="CSGBox3D" parent="map/structure_house3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.186432)
+use_collision = true
+size = Vector3(10, 5, 10)
+metadata/_edit_lock_ = true
+
+[node name="door" parent="map/structure_house3/building" instance=ExtResource("1_4ice2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.418, -0.334, 5.006)
+
+[node name="structure_house4" type="CSGCombiner3D" parent="map"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 15.5967, 1.5, 73.5191)
+use_collision = true
+collision_mask = 5
+
+[node name="building" type="CSGBox3D" parent="map/structure_house4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.186432)
+use_collision = true
+size = Vector3(10, 5, 10)
+metadata/_edit_lock_ = true
+
+[node name="door" parent="map/structure_house4/building" instance=ExtResource("1_4ice2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.418, -0.334, 5.006)
+
+[node name="structure_house5" type="CSGCombiner3D" parent="map"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 17.3392, 1.5, 32.6936)
+use_collision = true
+collision_mask = 5
+
+[node name="building" type="CSGBox3D" parent="map/structure_house5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.186432)
+use_collision = true
+size = Vector3(10, 5, 10)
+metadata/_edit_lock_ = true
+
+[node name="door" parent="map/structure_house5/building" instance=ExtResource("1_4ice2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.418, -0.334, 5.006)
+
+[node name="test_house" type="CSGCombiner3D" parent="map"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 65.0353, 1.5, 62.6091)
+use_collision = true
+collision_mask = 5
+
+[node name="building" type="CSGBox3D" parent="map/test_house"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.186432)
+use_collision = true
+size = Vector3(10, 5, 10)
+metadata/_edit_lock_ = true
+
+[node name="door" parent="map/test_house/building" instance=ExtResource("1_4ice2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.418, -0.334, 5.006)
+
+[node name="structure_house_postbox2" type="CSGCombiner3D" parent="map"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -78.723, 1.5, 14.7137)
+use_collision = true
+collision_mask = 5
+
+[node name="building" type="CSGBox3D" parent="map/structure_house_postbox2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0212059, 9.53674e-07, 0.0274773)
+use_collision = true
+size = Vector3(10, 5, 10)
+metadata/_edit_lock_ = true
+
+[node name="door" parent="map/structure_house_postbox2/building" instance=ExtResource("1_4ice2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.41839, 0.324638, 5.00608)
+metadata/_edit_lock_ = true
+
+[node name="post_box" parent="map/structure_house_postbox2/building" instance=ExtResource("2_ky2vd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67698, -0.5, 6.69015)
+metadata/_edit_lock_ = true
+
+[node name="structure_house_postbox3" type="CSGCombiner3D" parent="map"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 30.8571, 1.5, 1.45051)
+use_collision = true
+collision_mask = 5
+
+[node name="building" type="CSGBox3D" parent="map/structure_house_postbox3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0212059, 9.53674e-07, 0.0274773)
+use_collision = true
+size = Vector3(10, 5, 10)
+metadata/_edit_lock_ = true
+
+[node name="door" parent="map/structure_house_postbox3/building" instance=ExtResource("1_4ice2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.41839, 0.324638, 5.00608)
+metadata/_edit_lock_ = true
+
+[node name="post_box" parent="map/structure_house_postbox3/building" instance=ExtResource("2_ky2vd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67698, -0.5, 6.69015)
+metadata/_edit_lock_ = true
+
+[node name="structure_house_postbox4" type="CSGCombiner3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.2443, 1.5, 22.61)
+use_collision = true
+collision_mask = 5
+
+[node name="building" type="CSGBox3D" parent="map/structure_house_postbox4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0212059, 9.53674e-07, 0.0274773)
+use_collision = true
+size = Vector3(10, 5, 10)
+metadata/_edit_lock_ = true
+
+[node name="door" parent="map/structure_house_postbox4/building" instance=ExtResource("1_4ice2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.41839, 0.324638, 5.00608)
+metadata/_edit_lock_ = true
+
+[node name="post_box" parent="map/structure_house_postbox4/building" instance=ExtResource("2_ky2vd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67698, -0.5, 6.69015)
+metadata/_edit_lock_ = true
+
+[node name="test_house_postbox" type="CSGCombiner3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.2388, 1.5, 63.0157)
+use_collision = true
+collision_mask = 5
+
+[node name="building" type="CSGBox3D" parent="map/test_house_postbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0212059, 9.53674e-07, 0.0274773)
+use_collision = true
+size = Vector3(10, 5, 10)
+metadata/_edit_lock_ = true
+
+[node name="door" parent="map/test_house_postbox/building" instance=ExtResource("1_4ice2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.41839, 0.324638, 5.00608)
+metadata/_edit_lock_ = true
+
+[node name="post_box" parent="map/test_house_postbox/building" instance=ExtResource("2_ky2vd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67698, -0.5, 6.69015)
+metadata/_edit_lock_ = true
+
+[node name="structure_post_office" type="CSGCombiner3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.0356, 0, 69.8954)
+use_collision = true
+collision_mask = 2
+metadata/_edit_lock_ = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="map/structure_post_office"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.13571, 2.00301, -9.2161)
+size = Vector3(1, 3, 14.9126)
+metadata/_edit_lock_ = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="map/structure_post_office"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.13028, 1.98647, 8.13786)
+size = Vector3(1, 3, 11.7476)
+metadata/_edit_lock_ = true
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="map/structure_post_office"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.0735, 1.99117, -1.3441)
+size = Vector3(1, 3, 30.6245)
+metadata/_edit_lock_ = true
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="map/structure_post_office"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.96169, 4.94824, 26.3502)
+size = Vector3(1, 7.39368, 21.193)
+metadata/_edit_lock_ = true
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="map/structure_post_office"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.95357, 1.98551, -17.1619)
+size = Vector3(1, 3, 23.2389)
+metadata/_edit_lock_ = true
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="map/structure_post_office"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.97891, 4.66866, 14.4986)
+size = Vector3(1, 8, 21.226)
+metadata/_edit_lock_ = true
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="map/structure_post_office"]
+transform = Transform3D(0.5, 2.18557e-08, 0.866025, 0.866025, -3.78552e-08, -0.5, 2.18557e-08, 1, -3.78552e-08, 0.49823, 1.30294, 12.5073)
+size = Vector3(1, 3, 6.81716)
+metadata/_edit_lock_ = true
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="map/structure_post_office"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -5.614, 2.93931, 12.5073)
+size = Vector3(1, 3, 6.81716)
+metadata/_edit_lock_ = true
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="map/structure_post_office"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 1.98244, 2.95775, 20.3838)
+size = Vector3(0.967896, 10.9248, 21.2118)
+metadata/_edit_lock_ = true
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="map/structure_post_office"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.13028, 4.58315, 20.3782)
+size = Vector3(1, 8.19336, 12.7447)
+metadata/_edit_lock_ = true
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="map/structure_post_office"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.0735, 4.54885, 20.3956)
+size = Vector3(1, 8.11536, 12.896)
+metadata/_edit_lock_ = true
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="map/structure_post_office"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.1678, 4.96682, 14.5663)
+operation = 2
+size = Vector3(1.32312, 3.0498, 2.15956)
+metadata/_edit_lock_ = true
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="map/structure_post_office"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 10.8872, 2.36738, 24.1124)
+size = Vector3(1.56555, 3.75241, 1.69931)
+metadata/_edit_lock_ = true
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="map/structure_post_office"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 10.8872, 4.04517, 24.1124)
+operation = 2
+size = Vector3(1.23218, 0.396835, 1.25977)
+metadata/_edit_lock_ = true
+
+[node name="floor" type="CSGBox3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0812607, 0, 42.9031)
+use_collision = true
+size = Vector3(200, 1, 114.194)
+material = SubResource("StandardMaterial3D_bq10m")
+metadata/_edit_lock_ = true
+
+[node name="player" parent="." instance=ExtResource("4_ky2vd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.676, 4.08531, 93.5109)
+
+[node name="package" parent="." instance=ExtResource("2_vywp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.0095, 5.9278, 94.1953)
+
+[node name="house_postbox" parent="." instance=ExtResource("4_3pvrb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.1491, -0.089618, 63.0687)
+
+[connection signal="collected" from="package" to="GameManager" method="_on_package_collected"]
