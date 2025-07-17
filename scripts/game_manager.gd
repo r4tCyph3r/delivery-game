@@ -25,7 +25,7 @@ func new_package():
 	var package = spawn_package.instantiate()
 	get_parent().add_child(package)
 	package.global_position = package_spawnpoint
-	print(package.get_property_list())
+	package.collected.connect(_on_package_collected)
 
 # function to determine when the package has been picked up
 # adds a count to the package count
