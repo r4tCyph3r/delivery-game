@@ -4,6 +4,9 @@ extends Node3D
 # preload package so that it can be easily instantiated
 var _package = preload("res://Vamp-Surv-Clone/scenes/package.tscn")
 
+# Signals
+signal set_package_dest # sets destination for packages in new_package() function
+
 # prepare timer, package count and money variables to be handled by the manager
 @onready var package_timer : Timer = $PackageTimer
 @onready var package_count : int = 0
@@ -51,6 +54,7 @@ func new_package():
 	package.global_position = get_active_spawnpoint() # global position sets the spawnpoint to the parcel room
 	package.collected.connect(_on_package_collected) # connects interactions signal
 	package.destination = get_delivery_location() # determines where the package needs to be delivered
+	emit_signal("set_package_dest", package.destination)
 
 # Checks for active package_spawnpoints in the group
 # Calls for a location in the event it does not exist
