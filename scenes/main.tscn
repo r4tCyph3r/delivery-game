@@ -28,6 +28,9 @@ albedo_color = Color(0.191666, 0.352051, 0.24599, 1)
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.16248, 0)
 
+[node name="package_spawnpoint" parent="." instance=ExtResource("4_ti7qw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.0663, 3.80109, 49.5759)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vywp5")
 
@@ -155,6 +158,3 @@ use_collision = true
 size = Vector3(200, 1, 114.194)
 material = SubResource("StandardMaterial3D_bq10m")
 metadata/_edit_lock_ = true
-
-[node name="package_spawnpoint" parent="." instance=ExtResource("4_ti7qw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.8663, 3.48238, 49.5033)

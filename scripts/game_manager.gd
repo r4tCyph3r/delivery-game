@@ -2,7 +2,7 @@ class_name GameManager
 extends Node3D
 
 # preload package so that it can be easily instantiated
-var spawn_package = preload("res://Vamp-Surv-Clone/scenes/package.tscn")
+var _package = preload("res://Vamp-Surv-Clone/scenes/package.tscn")
 
 # prepare timer, package count and money variables to be handled by the manager
 @onready var package_timer : Timer = $PackageTimer
@@ -11,11 +11,18 @@ var spawn_package = preload("res://Vamp-Surv-Clone/scenes/package.tscn")
 @onready var cashout : int = 0
 @onready var delivery_interactable : Array = get_tree().get_nodes_in_group("delivery_interact")
 @onready var delivery_location: Array = get_tree().get_nodes_in_group("delivery_location")
-@onready var package_spawnpoints: Array = get_tree().get_nodes_in_group("package_spawnpoints")
-var available_addresses: Array = []
-var available_spawnpoints: Array = []
-var active_spawnpoint: Vector3
-var address = 1
+var available_location: Array = []
+
+### Code that has been removed for potential later use
+## Using multiple spawnpoints
+#@onready var package_spawnpoints: Array = get_tree().get_nodes_in_group("package_spawnpoints")
+#var available_spawnpoints: Array = []
+#var active_spawnpoint: Vector3
+## below is part of the same thing, was in ready func before removing
+	#for spawnpoint in package_spawnpoints:
+		#available_spawnpoints.append(spawnpoint)
+		#if spawnpoint.is_active:
+			#active_spawnpoint = spawnpoint.location
 
 ## Onready function for the GM
 # when it was present the functionality worked a bit better
@@ -24,35 +31,34 @@ func _ready() -> void:
 	# Loop used to determine the location_number of all addresses spawned and appends to the array current_addresses
 	# sets the loc_num to address and then increments the value by 1
 	# effectively giving all the houses individual house numbers/values
+	var address = 1
 	for member in delivery_location:
 		if member.location_number == 0:
 			member.location_number = address
-			available_addresses.append(address)
+			available_location.append(address)
 			address += 1
-	print(available_addresses)
 
 	# Loop used to attach the signal to each of the delivery points instantiated
 	for interactable in delivery_interactable:
 		interactable.delivery_attempted.connect(_on_delivery_attempted)
 	
-	for spawnpoint in package_spawnpoints:
-		available_spawnpoints.append(spawnpoint)
-		if spawnpoint.is_active:
-			active_spawnpoint = spawnpoint.location
-	
 	new_package()
 
-# command creates a variable for package and instances it
-# add child adds the scene to the scene tree
-# global position sets the spawnpoint to the parcel room
+# method creates a variable for package and instances it
 func new_package():
-	var package = spawn_package.instantiate()
-	print(str(active_spawnpoint) + str(package.global_position))
-	add_child(package)
-	package.global_position = active_spawnpoint
-	package.collected.connect(_on_package_collected)
-	package.destination = get_delivery_location()
-	print(package.destination)
+	var package = _package.instantiate() # instances new package
+	add_child(package) # adds package to the scene tree
+	package.global_position = get_active_spawnpoint() # global position sets the spawnpoint to the parcel room
+	package.collected.connect(_on_package_collected) # connects interactions signal
+	package.destination = get_delivery_location() # determines where the package needs to be delivered
+
+# Checks for active package_spawnpoints in the group
+# Calls for a location in the event it does not exist
+func get_active_spawnpoint():
+	for spawn in get_tree().get_nodes_in_group("package_spawnpoints"):
+		if spawn.is_active == true:
+			return spawn.get_location()
+			
 
 # function to determine when the package has been picked up
 # adds a count to the package count
@@ -63,7 +69,7 @@ func _on_package_collected():
 
 # Want to get a specific delivery location for a package
 func get_delivery_location():
-	var selected_location = available_addresses.pick_random()
+	var selected_location = available_location.pick_random()
 	return selected_location
 
 # on timer end spawns new package
