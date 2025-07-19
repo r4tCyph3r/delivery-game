@@ -4,9 +4,6 @@ extends Node3D
 # preload package so that it can be easily instantiated
 var _package = preload("res://Vamp-Surv-Clone/scenes/package.tscn")
 
-# Signals
-signal set_package_dest # sets destination for packages in new_package() function
-
 # prepare timer, package count and money variables to be handled by the manager
 @onready var package_timer : Timer = $PackageTimer
 @onready var package_count : int = 0
@@ -54,7 +51,8 @@ func new_package():
 	package.global_position = get_active_spawnpoint() # global position sets the spawnpoint to the parcel room
 	package.collected.connect(_on_package_collected) # connects interactions signal
 	package.destination = get_delivery_location() # determines where the package needs to be delivered
-	emit_signal("set_package_dest", package.destination)
+	package.set_package_dest(package.destination) # sends the address to the instantiated package (Not sure what for atm)
+	
 
 # Checks for active package_spawnpoints in the group
 # Calls for a location in the event it does not exist
@@ -86,10 +84,12 @@ func _on_package_timer_timeout() -> void:
 # plan to add get_money() to a button/atm/area but not yet implemented
 # removes 1 package from inventory then prints both values
 func _on_delivery_attempted() -> void:
-	if package_count > 0:
-		var cashinc : int = randi() % 30
-		cashout += cashinc
-		package_count -= 1
-		print("delivery success you made £" + str(cashinc))
-		print("current cashout would be £" + str(cashout))
+	if package_count < 1:
 		return
+		
+	var cashinc : int = randi() % 30
+	cashout += cashinc
+	package_count -= 1
+	print("delivery success you made £" + str(cashinc))
+	print("current cashout would be £" + str(cashout))
+	return
