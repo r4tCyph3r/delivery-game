@@ -10,7 +10,7 @@ albedo_color = Color(0.374009, 0.241641, 0.0854232, 1)
 
 [node name="door" type="StaticBody3D" groups=["delivery_interact"]]
 collision_layer = 4
-collision_mask = 0
+collision_mask = 2
 script = ExtResource("1_s2cio")
 interact_prompt = "interact"
 can_interact = true

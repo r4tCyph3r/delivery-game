@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bv1ttxqsh5uyn"]
+[gd_scene load_steps=9 format=3 uid="uid://bv1ttxqsh5uyn"]
 
 [ext_resource type="PackedScene" uid="uid://dpf1ehfg4oqrb" path="res://Vamp-Surv-Clone/scenes/GameManager.tscn" id="1_ti7qw"]
 [ext_resource type="PackedScene" uid="uid://bc7rm6rmyp07n" path="res://Vamp-Surv-Clone/scenes/house.tscn" id="4_3pvrb"]
 [ext_resource type="PackedScene" uid="uid://qacyjwmukelh" path="res://Vamp-Surv-Clone/scenes/player.tscn" id="4_ky2vd"]
 [ext_resource type="PackedScene" uid="uid://bloov6poincp0" path="res://Vamp-Surv-Clone/scenes/package_spawnpoint.tscn" id="4_ti7qw"]
-[ext_resource type="PackedScene" uid="uid://dbm4qv5jr8la1" path="res://Vamp-Surv-Clone/scenes/atm.tscn" id="5_ti7qw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eynem"]
 sky_top_color = Color(0.237496, 0.460538, 0.693233, 1)
@@ -159,6 +158,3 @@ use_collision = true
 size = Vector3(200, 1, 114.194)
 material = SubResource("StandardMaterial3D_bq10m")
 metadata/_edit_lock_ = true
-
-[node name="atm" parent="." instance=ExtResource("5_ti7qw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.3636, 4.41757, 51.2436)

@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbm4qv5jr8la1"]
+
+[ext_resource type="Script" uid="uid://d3ia7vija2mt1" path="res://Vamp-Surv-Clone/scripts/atm.gd" id="1_8kc4l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jlw0w"]
+albedo_color = Color(0.270222, 0.270222, 0.270222, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8kc4l"]
+albedo_color = Color(0, 0.791348, 0.951601, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_evxfx"]
+size = Vector3(1.0498, 0.955078, 1.4375)
+
+[node name="atm" type="StaticBody3D" groups=["bank_interact"]]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_8kc4l")
+interact_prompt = "deposit mula"
+can_interact = true
+
+[node name="temp_atm" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.529279, -0.00429437)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="temp_atm"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.430237, 0)
+material = SubResource("StandardMaterial3D_jlw0w")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="temp_atm/CSGBox3D"]
+operation = 2
+size = Vector3(0.810547, 0.8125, 1.0459)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="temp_atm"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.430237, 0)
+size = Vector3(0.833008, 0.831055, 0.731445)
+material = SubResource("StandardMaterial3D_jlw0w")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="temp_atm"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00393677, 0.430237, 0.0207544)
+size = Vector3(0.697021, 0.804688, 0.852539)
+material = SubResource("StandardMaterial3D_8kc4l")
+
+[node name="atm_hitbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0457153, 0)
+shape = SubResource("BoxShape3D_evxfx")
