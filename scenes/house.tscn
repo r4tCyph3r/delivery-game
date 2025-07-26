@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://bc7rm6rmyp07n"]
 
-[ext_resource type="Script" uid="uid://bm272lwo35v23" path="res://Vamp-Surv-Clone/scripts/house_postbox.gd" id="1_6qipo"]
+[ext_resource type="Script" uid="uid://b1bpt366ravks" path="res://Vamp-Surv-Clone/scripts/delivery_location.gd" id="1_64i52"]
 [ext_resource type="PackedScene" uid="uid://b2f8kkst7dtki" path="res://Vamp-Surv-Clone/scenes/door.tscn" id="2_64i52"]
 
 [node name="house" type="Node3D" groups=["delivery_location"]]
-script = ExtResource("1_6qipo")
+script = ExtResource("1_64i52")
 
 [node name="building" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0212059, 1.526, 0.0274773)
@@ -14,3 +14,8 @@ metadata/_edit_lock_ = true
 
 [node name="door" parent="." instance=ExtResource("2_64i52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.99355, 1.63456, 5.15836)
+
+[node name="HouseAddressLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19975, 2.47413, 5.0489)
+text = "Error if seen kekw"
+font_size = 72

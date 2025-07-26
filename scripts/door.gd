@@ -6,4 +6,3 @@ signal delivery_attempted
 
 func interact():
 	emit_signal("delivery_attempted", house_address)
-	

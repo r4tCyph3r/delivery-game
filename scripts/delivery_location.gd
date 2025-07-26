@@ -10,6 +10,10 @@ class_name DeliveryLocation
 func assign_address(addr):
 	location_number = addr
 	for loc in get_children():
+		# Used to assign correct variable to the doors
 		if loc is interactable_object:
 			loc.house_address = location_number
+		# Used to assign text to the house for ID
+		if loc is Label3D:
+			loc.text = str(location_number)
 	return

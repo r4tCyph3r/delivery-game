@@ -10,7 +10,7 @@ var _package = preload("res://Vamp-Surv-Clone/scenes/package.tscn")
 # Package count used to keep track of current packages in players inventory
 @onready var package_count : int = 0
 # Money is what each delivery gives individually
-@onready var money : int = 0
+#@onready var money : int = 0
 # wallet is what the player is currently holding
 @onready var wallet : int = 0
 # bank is what the player has deposited
@@ -46,6 +46,12 @@ func connect_signals():
 	
 	for interactable in bank_interactable_nodes:
 		interactable.money_deposited.connect(_on_money_deposited) 
+
+func check_money():
+	pass
+
+func update_money(bank_money, wallet_money):
+	pass
 
 # When bank is interacted with
 func _on_money_deposited():

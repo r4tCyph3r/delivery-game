@@ -1,9 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b2f8kkst7dtki"]
 
 [ext_resource type="Script" uid="uid://c85f6vd5uveeu" path="res://Vamp-Surv-Clone/scripts/door.gd" id="1_s2cio"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_s2cio"]
-size = Vector3(1.53809, 2.74634, 0.330078)
+[ext_resource type="PackedScene" uid="uid://bmt1vstr5m3qn" path="res://Vamp-Surv-Clone/scenes/components/HitboxComponent.tscn" id="2_dagxi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dagxi"]
 albedo_color = Color(0.374009, 0.241641, 0.0854232, 1)
@@ -15,8 +13,7 @@ script = ExtResource("1_s2cio")
 interact_prompt = "interact"
 can_interact = true
 
-[node name="door_hitbox" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_s2cio")
+[node name="door_hitbox" parent="." instance=ExtResource("2_dagxi")]
 
 [node name="door_texture" type="CSGBox3D" parent="."]
 size = Vector3(1.5, 2.7, 0.3)
