@@ -1,0 +1,30 @@
+[gd_scene load_steps=8 format=3 uid="uid://wo7d8yqio2h1"]
+
+[ext_resource type="Script" uid="uid://5xocy8wpk7cl" path="res://player_controller_component.gd" id="1_g2iu8"]
+[ext_resource type="PackedScene" uid="uid://dcqr3pkppd2bs" path="res://Vamp-Surv-Clone/scenes/components/MovementComponent.tscn" id="2_7vh18"]
+[ext_resource type="PackedScene" uid="uid://bmt1vstr5m3qn" path="res://Vamp-Surv-Clone/scenes/components/HitboxComponent.tscn" id="3_bgwqa"]
+[ext_resource type="PackedScene" uid="uid://cdn1orgrhhmi" path="res://Vamp-Surv-Clone/scenes/components/DebugComponent.tscn" id="4_s0ypy"]
+[ext_resource type="Script" uid="uid://cssdy0c7uv3qd" path="res://Vamp-Surv-Clone/scenes/components/player_controller_component_2.gd" id="5_mk4y2"]
+[ext_resource type="PackedScene" uid="uid://dfgy8cgabcha0" path="res://Vamp-Surv-Clone/scenes/interaction/interaction_controller.tscn" id="6_rieak"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s0ypy"]
+
+[node name="PlayerControllerComponent" type="CharacterBody3D"]
+script = ExtResource("1_g2iu8")
+
+[node name="MovementComponent" parent="." instance=ExtResource("2_7vh18")]
+
+[node name="HitboxComponent" parent="." instance=ExtResource("3_bgwqa")]
+shape = SubResource("CapsuleShape3D_s0ypy")
+
+[node name="DebugComponent" parent="." instance=ExtResource("4_s0ypy")]
+
+[node name="PlayerControllerComponent2" type="Node3D" parent="."]
+script = ExtResource("5_mk4y2")
+
+[node name="HeadComponent" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="Camera3D" type="Camera3D" parent="HeadComponent"]
+
+[node name="interaction_controller" parent="HeadComponent/Camera3D" instance=ExtResource("6_rieak")]

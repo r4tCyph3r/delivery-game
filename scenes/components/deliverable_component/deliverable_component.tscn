@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj6lbscc7k61s"]
+
+[ext_resource type="Script" uid="uid://c35vj6ccdnkii" path="res://Vamp-Surv-Clone/scenes/components/deliverable_component/deliverable_component.gd" id="1_oti3t"]
+[ext_resource type="PackedScene" uid="uid://xl1w87pnpkel" path="res://Vamp-Surv-Clone/scenes/components/interaction_component/interaction_component.tscn" id="2_wxrr6"]
+
+[node name="DeliverableComponent" type="Node3D"]
+script = ExtResource("1_oti3t")
+content = 1
+
+[node name="InteractionComponent" parent="." instance=ExtResource("2_wxrr6")]
+interact_prompt = "Pickup"
+can_interact = true

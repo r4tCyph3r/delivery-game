@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Deliverable" load_steps=2 format=3 uid="uid://b2tu88e5251kh"]
+
+[ext_resource type="Script" uid="uid://ds4u3pro4ncg5" path="res://Vamp-Surv-Clone/resources/Deliverable.gd" id="1_5kv1u"]
+
+[resource]
+script = ExtResource("1_5kv1u")
+name = "Parcel"
+type = 1
+interact_type = 0
+scene_path = "res://Vamp-Surv-Clone/scenes/packages/package_parcel.tscn"
+metadata/_custom_type_script = "uid://ds4u3pro4ncg5"

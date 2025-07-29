@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bick8y01utyvm"]
+
+[ext_resource type="PackedScene" uid="uid://bj6lbscc7k61s" path="res://Vamp-Surv-Clone/scenes/components/deliverable_component/deliverable_component.tscn" id="1_oxaw5"]
+[ext_resource type="PackedScene" uid="uid://ct2fdb73crtfv" path="res://Vamp-Surv-Clone/scenes/components/hitbox_component/HitboxComponent.tscn" id="2_mm8m6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gfatk"]
+size = Vector3(4.0625, 2.05566, 0.457031)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yhmfm"]
+size = Vector3(4, 2, 0.35)
+
+[node name="TV" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 3
+
+[node name="DeliverableComponent" parent="." instance=ExtResource("1_oxaw5")]
+
+[node name="HitboxComponent" parent="." instance=ExtResource("2_mm8m6")]
+shape = SubResource("BoxShape3D_gfatk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_yhmfm")

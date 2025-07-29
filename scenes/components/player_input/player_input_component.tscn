@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://76xxwwyjsaq0"]
+
+[ext_resource type="Script" uid="uid://wllxckvo3tm3" path="res://Vamp-Surv-Clone/scenes/components/player_input/player_input_component.gd" id="1_ua5nv"]
+
+[node name="PlayerInputComponent" type="Node3D"]
+script = ExtResource("1_ua5nv")

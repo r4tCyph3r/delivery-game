@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://dio26tsddjgsw"]
+
+[ext_resource type="Script" uid="uid://bb86mh075yqkh" path="res://Vamp-Surv-Clone/scenes/button.gd" id="1_3bdjv"]
+[ext_resource type="PackedScene" uid="uid://xl1w87pnpkel" path="res://Vamp-Surv-Clone/scenes/components/interaction_component/interaction_component.tscn" id="1_q64cs"]
+[ext_resource type="PackedScene" uid="uid://ct2fdb73crtfv" path="res://Vamp-Surv-Clone/scenes/components/hitbox_component/HitboxComponent.tscn" id="2_iubxm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3bdjv"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iubxm"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eovil"]
+size = Vector3(0.209961, 0.210938, 0.216553)
+
+[sub_resource type="Animation" id="Animation_3bdjv"]
+resource_name = "press"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.5, 1, 0, 0, -0.10164, 1, 1, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_eovil"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_85li6"]
+_data = {
+&"RESET": SubResource("Animation_eovil"),
+&"press": SubResource("Animation_3bdjv")
+}
+
+[node name="Button" type="StaticBody3D" groups=["RequestLocations"]]
+script = ExtResource("1_3bdjv")
+
+[node name="InteractionComponent" parent="." instance=ExtResource("1_q64cs")]
+interact_prompt = "get new package"
+can_interact = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_3bdjv")
+surface_material_override/0 = SubResource("StandardMaterial3D_iubxm")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("2_iubxm")]
+shape = SubResource("BoxShape3D_eovil")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_85li6")
+}
+
+[node name="spawnpoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99018, 2.00915)
+
+[node name="package_timer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true

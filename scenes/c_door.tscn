@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://i5fyr8hw5nq"]
+
+[ext_resource type="PackedScene" uid="uid://cqi4v2skmbfio" path="res://Vamp-Surv-Clone/scenes/components/delivery_location_component/delivery_location_component.tscn" id="2_1cwfq"]
+[ext_resource type="PackedScene" uid="uid://ct2fdb73crtfv" path="res://Vamp-Surv-Clone/scenes/components/hitbox_component/HitboxComponent.tscn" id="2_e71p5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oxv87"]
+size = Vector3(0.36499, 2.03101, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_oxv87"]
+size = Vector3(0.3, 2, 1)
+
+[node name="cDoor" type="StaticBody3D"]
+
+[node name="DeliveryLocationComponent" parent="." instance=ExtResource("2_1cwfq")]
+
+[node name="HitboxComponent" parent="." instance=ExtResource("2_e71p5")]
+shape = SubResource("BoxShape3D_oxv87")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_oxv87")

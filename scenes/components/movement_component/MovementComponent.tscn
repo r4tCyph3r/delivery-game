@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://5kb13uxwcgx8"]
+
+[ext_resource type="Script" uid="uid://bdx5476kqma2o" path="res://Vamp-Surv-Clone/scenes/components/movement_component/movement_component.gd" id="1_bh3lh"]
+
+[node name="MovementComponent" type="CharacterBody3D"]
+script = ExtResource("1_bh3lh")
+can_move = false
+has_gravity = false
+can_jump = false
