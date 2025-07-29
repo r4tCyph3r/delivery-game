@@ -1,13 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://i5fyr8hw5nq"]
+[gd_scene load_steps=7 format=3 uid="uid://i5fyr8hw5nq"]
 
 [ext_resource type="PackedScene" uid="uid://cqi4v2skmbfio" path="res://Vamp-Surv-Clone/scenes/components/delivery_location_component/delivery_location_component.tscn" id="2_1cwfq"]
 [ext_resource type="PackedScene" uid="uid://ct2fdb73crtfv" path="res://Vamp-Surv-Clone/scenes/components/hitbox_component/HitboxComponent.tscn" id="2_e71p5"]
+[ext_resource type="Script" uid="uid://0au1ojqxypvl" path="res://Vamp-Surv-Clone/scenes/house_address_label.gd" id="3_e71p5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oxv87"]
-size = Vector3(0.36499, 2.03101, 1)
+size = Vector3(0.36499, 2.03101, 1.03931)
 
 [sub_resource type="BoxMesh" id="BoxMesh_oxv87"]
 size = Vector3(0.3, 2, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oxv87"]
+albedo_color = Color(0.305359, 0.165696, 0.042845, 1)
 
 [node name="cDoor" type="StaticBody3D"]
 
@@ -18,3 +22,14 @@ shape = SubResource("BoxShape3D_oxv87")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_oxv87")
+surface_material_override/0 = SubResource("StandardMaterial3D_oxv87")
+
+[node name="HouseAddressLabel" type="Label3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.43099, -0.0439173)
+billboard = 1
+no_depth_test = true
+text = "Error if seen kekw"
+font_size = 72
+script = ExtResource("3_e71p5")
+
+[connection signal="name_updated" from="DeliveryLocationComponent" to="HouseAddressLabel" method="_on_delivery_location_component_name_updated"]

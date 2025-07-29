@@ -13,16 +13,6 @@ albedo_color = Color(1, 0, 0, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_eovil"]
 size = Vector3(0.209961, 0.210938, 0.216553)
 
-[sub_resource type="Animation" id="Animation_3bdjv"]
-resource_name = "press"
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MeshInstance3D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.5, 1, 0, 0, -0.10164, 1, 1, 0, 0, 0)
-
 [sub_resource type="Animation" id="Animation_eovil"]
 length = 0.001
 tracks/0/type = "position_3d"
@@ -32,6 +22,16 @@ tracks/0/path = NodePath("MeshInstance3D")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_3bdjv"]
+resource_name = "press"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.5, 1, 0, 0, -0.10164, 1, 1, 0, 0, 0)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_85li6"]
 _data = {
@@ -62,5 +62,4 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99018, 2.00915)
 
 [node name="package_timer" type="Timer" parent="."]
-wait_time = 60.0
 one_shot = true

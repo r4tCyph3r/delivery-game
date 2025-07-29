@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cqp2bjxetdh80" path="res://Vamp-Surv-Clone/scenes/c_player.tscn" id="1_7mang"]
 [ext_resource type="PackedScene" uid="uid://jqmk25hlac3l" path="res://Vamp-Surv-Clone/scenes/delivery_manager.tscn" id="1_hddem"]
-[ext_resource type="PackedScene" uid="uid://i5fyr8hw5nq" path="res://Vamp-Surv-Clone/scenes/c_door.tscn" id="2_bwqx0"]
+[ext_resource type="PackedScene" uid="uid://tavmm1ohbc81" path="res://Vamp-Surv-Clone/scenes/chouse.tscn" id="5_a32tp"]
 [ext_resource type="PackedScene" uid="uid://dio26tsddjgsw" path="res://Vamp-Surv-Clone/scenes/button.tscn" id="5_m6eo0"]
 [ext_resource type="PackedScene" uid="uid://ov4yvvaqc1nw" path="res://Vamp-Surv-Clone/scenes/structure_post_office.tscn" id="5_sbq22"]
 
@@ -44,20 +44,17 @@ collision_mask = 7
 size = Vector3(59.5603, 0.5, 64.1819)
 material = SubResource("StandardMaterial3D_qppfl")
 
-[node name="cDoor" parent="." instance=ExtResource("2_bwqx0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.63243, 0, 4.5911)
-
 [node name="structure_post_office" parent="." instance=ExtResource("5_sbq22")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7025, -1.53757, 5.94147)
 
 [node name="Button" parent="." instance=ExtResource("5_m6eo0")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 23.4094, 3.51242, 31.7529)
 
-[node name="cDoor2" parent="." instance=ExtResource("2_bwqx0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0875, 0.1061, 5.69994)
+[node name="house" parent="." instance=ExtResource("5_a32tp")]
+transform = Transform3D(-0.0339227, 0, 0.999424, 0, 1, 0, -0.999424, 0, -0.0339227, -16.9723, -0.599213, 14.5573)
 
-[node name="cDoor3" parent="." instance=ExtResource("2_bwqx0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3685, 0.1061, -9.49012)
+[node name="house2" parent="." instance=ExtResource("5_a32tp")]
+transform = Transform3D(0.493046, 0, 0.870003, 0, 1, 0, -0.870003, 0, 0.493046, -17.1009, -0.599065, -5.23392)
 
-[node name="cDoor4" parent="." instance=ExtResource("2_bwqx0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.05735, 0.1061, -7.7311)
+[node name="house3" parent="." instance=ExtResource("5_a32tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.89266, -0.787632, -16.8372)

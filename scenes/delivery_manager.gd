@@ -25,7 +25,8 @@ func set_location_names():
 		var dest_pre = available_prefixes.pop_at(randi() % available_prefixes.size())
 		var dest_suf = available_suffixes.pop_at(randi() % available_suffixes.size())
 		loc.dest_name = str(dest_pre,' ', dest_suf)
-		print(loc.dest_name)
+		loc.emit_signal('name_updated', loc.dest_name)
+		
 
 func connect_signals():
 	for loc in request_locations:
@@ -33,7 +34,7 @@ func connect_signals():
 
 	for loc in delivery_locations:
 		loc.connect('delivery_attempted', _on_delivery)
-		
+
 func new_package(requested_package, package_location):
 	# select package type
 	var parcel
@@ -52,6 +53,12 @@ func _on_pickup(package_data):
 	outstanding_deliveries.append(package_data)
 	print('Current deliveries: ', package_data.package , ' -> ', package_data.destination, ' -> ', package_data.value)
 
-func _on_delivery():
-	for package in outstanding_deliveries:
-		print('Package: ', package.package, " | Destination: ", package.destination, " | Value: ", package.value)
+func _on_delivery(current_location):
+	for index in outstanding_deliveries.size():
+		if outstanding_deliveries[index].destination == current_location:
+			#emit_signal('money_changed', outstanding_deliveries[index].value)
+			print(outstanding_deliveries[index].package, ' has been delivered successfully! +£' , outstanding_deliveries[index].value)
+			outstanding_deliveries.remove_at(index)
+			return
+		else:
+			print('[DeliveryManager] Wrong Address')
