@@ -28,7 +28,7 @@ albedo_color = Color(0.191666, 0.352051, 0.24599, 1)
 [node name="DeliveryManager" parent="." instance=ExtResource("1_hddem")]
 
 [node name="cPlayer" parent="." instance=ExtResource("1_7mang")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5799, 4.21474, 26.4137)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.953768, 1.87423)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_7mang")

@@ -2,15 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://bj6lbscc7k61s" path="res://Vamp-Surv-Clone/scenes/components/deliverable_component/deliverable_component.tscn" id="1_mp460"]
 [ext_resource type="PackedScene" uid="uid://ct2fdb73crtfv" path="res://Vamp-Surv-Clone/scenes/components/hitbox_component/HitboxComponent.tscn" id="2_i5x4y"]
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_mp460"]
-height = 0.508789
-radius = 0.0522461
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_i5x4y"]
-top_radius = 0.05
-bottom_radius = 0.05
-height = 0.5
+[ext_resource type="Shape3D" uid="uid://vee8wumqsdmp" path="res://Vamp-Surv-Clone/scenes/packages/3D/NewspaperCollider.tres" id="3_81tdb"]
+[ext_resource type="CylinderMesh" uid="uid://wcys6j2tatny" path="res://Vamp-Surv-Clone/scenes/packages/3D/NewspaperMesh.tres" id="3_i5x4y"]
 
 [node name="Newspaper" type="RigidBody3D"]
 collision_layer = 4
@@ -20,8 +13,8 @@ collision_mask = 3
 
 [node name="HitboxComponent" parent="." instance=ExtResource("2_i5x4y")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
-shape = SubResource("CylinderShape3D_mp460")
+shape = ExtResource("3_81tdb")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="NewspaperMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("CylinderMesh_i5x4y")
+mesh = ExtResource("3_i5x4y")

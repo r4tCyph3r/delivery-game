@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ce42bgppggab8"]
+
+[ext_resource type="Script" uid="uid://blwuq5ppp0b7k" path="res://Vamp-Surv-Clone/scenes/components/delivery_spawner_component/delivery_spawner.gd" id="1_qjank"]
+
+[node name="DeliverySpawnerComponent" type="Node3D"]
+script = ExtResource("1_qjank")
