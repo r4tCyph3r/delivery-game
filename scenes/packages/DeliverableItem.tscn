@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://crkq8manjtren"]
+
+[ext_resource type="Script" uid="uid://c0yepicfryrpk" path="res://Vamp-Surv-Clone/scenes/packages/deliverable_item.gd" id="1_hlk8d"]
+[ext_resource type="PackedScene" uid="uid://bj6lbscc7k61s" path="res://Vamp-Surv-Clone/scenes/components/deliverable_component/deliverable_component.tscn" id="2_2k8oq"]
+[ext_resource type="PackedScene" uid="uid://xl1w87pnpkel" path="res://Vamp-Surv-Clone/scenes/components/interaction_component/interaction_component.tscn" id="3_jomp2"]
+[ext_resource type="PackedScene" uid="uid://ct2fdb73crtfv" path="res://Vamp-Surv-Clone/scenes/components/hitbox_component/HitboxComponent.tscn" id="3_rkm5q"]
+
+[node name="DeliverableItem" type="RigidBody3D"]
+collision_layer = 8
+collision_mask = 15
+script = ExtResource("1_hlk8d")
+
+[node name="DeliverableComponent" parent="." instance=ExtResource("2_2k8oq")]
+
+[node name="InteractionComponent" parent="." instance=ExtResource("3_jomp2")]
+
+[node name="HitboxComponent" parent="." instance=ExtResource("3_rkm5q")]
+transform = Transform3D(0.427647, 0, 0, 0, 0.427647, 0, 0, 0, 0.427647, 0, 0, 0)
+
+[node name="PackageMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.38892, 0, 0, 0, 0.341842, 0, 0, 0, 0.393679, 0, 0, 0)

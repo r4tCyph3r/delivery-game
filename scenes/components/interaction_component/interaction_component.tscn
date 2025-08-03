@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://xl1w87pnpkel"]
+
+[ext_resource type="Script" uid="uid://bg6tmicqqu2fw" path="res://Vamp-Surv-Clone/scenes/components/interaction_component/interaction_component.gd" id="1_xbwo5"]
+
+[node name="InteractionComponent" type="Node3D"]
+script = ExtResource("1_xbwo5")

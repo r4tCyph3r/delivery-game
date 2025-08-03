@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bloov6poincp0"]
-
-[ext_resource type="Script" uid="uid://b8pv3inl2lec6" path="res://Vamp-Surv-Clone/scripts/package_spawnpoint.gd" id="1_iqxd0"]
-
-[node name="package_spawnpoint" type="Marker3D" groups=["package_spawnpoints"]]
-script = ExtResource("1_iqxd0")
-is_active = true

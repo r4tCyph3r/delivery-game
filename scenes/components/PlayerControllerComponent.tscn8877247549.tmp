@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://wo7d8yqio2h1"]
+
+[ext_resource type="Script" uid="uid://b2hbcktkfsd4o" path="res://Vamp-Surv-Clone/scenes/components/player_controller_component.gd" id="1_mk4y2"]
+[ext_resource type="Script" uid="uid://cw0r557t1kc4b" path="res://Vamp-Surv-Clone/scripts/movement_component.gd" id="1_rieak"]
+[ext_resource type="PackedScene" uid="uid://bmt1vstr5m3qn" path="res://Vamp-Surv-Clone/scenes/components/HitboxComponent.tscn" id="3_bgwqa"]
+[ext_resource type="Script" uid="uid://f3im73k3jr8n" path="res://head_component.gd" id="4_mk4y2"]
+[ext_resource type="PackedScene" uid="uid://cdn1orgrhhmi" path="res://Vamp-Surv-Clone/scenes/components/DebugComponent.tscn" id="4_s0ypy"]
+[ext_resource type="PackedScene" uid="uid://dfgy8cgabcha0" path="res://Vamp-Surv-Clone/scenes/interaction/interaction_controller.tscn" id="6_rieak"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mk4y2"]
+
+[node name="PlayerController" type="CharacterBody3D"]
+script = ExtResource("1_mk4y2")
+mouse_sensitivity = null
+base_speed = null
+jump_velocity = null
+sprint_speed = null
+input_left = null
+input_right = null
+input_forward = null
+input_back = null
+input_jump = null
+input_sprint = null
+
+[node name="MovementComponent" type="Node3D" parent="."]
+script = ExtResource("1_rieak")
+use_player_input = true
+target_node_path = NodePath("..")
+reference_basis_node_path = NodePath("../HeadComponent")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("3_bgwqa")]
+shape = SubResource("CapsuleShape3D_mk4y2")
+
+[node name="DebugComponent" parent="." instance=ExtResource("4_s0ypy")]
+
+[node name="HeadComponent" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+script = ExtResource("4_mk4y2")
+
+[node name="Camera3D" type="Camera3D" parent="HeadComponent"]
+
+[node name="interaction_controller" parent="HeadComponent/Camera3D" instance=ExtResource("6_rieak")]

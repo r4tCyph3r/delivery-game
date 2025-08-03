@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://wo7d8yqio2h1"]
+
+[ext_resource type="Script" uid="uid://5xocy8wpk7cl" path="res://player_controller_component.gd" id="1_g2iu8"]
+[ext_resource type="PackedScene" uid="uid://dcqr3pkppd2bs" path="res://Vamp-Surv-Clone/scenes/MovementComponent.tscn" id="2_7vh18"]
+[ext_resource type="PackedScene" uid="uid://bmt1vstr5m3qn" path="res://Vamp-Surv-Clone/scenes/components/HitboxComponent.tscn" id="3_bgwqa"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s0ypy"]
+
+[node name="PlayerControllerComponent" type="CharacterBody3D"]
+script = ExtResource("1_g2iu8")
+input_left = null
+input_right = null
+input_forward = null
+input_back = null
+input_jump = null
+input_sprint = null
+input_freefly = null
+can_sprint = null
+can_freefly = null
+can_jump = null
+can_move = null
+
+[node name="MovementComponent" parent="." instance=ExtResource("2_7vh18")]
+
+[node name="HitboxComponent" parent="." instance=ExtResource("3_bgwqa")]
+shape = SubResource("CapsuleShape3D_s0ypy")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://drop7ea6dbqym"]
+
+[ext_resource type="Script" uid="uid://b4husib2g2k" path="res://Vamp-Surv-Clone/scenes/components/head_component/head_component.gd" id="1_csatd"]
+
+[node name="HeadComponent" type="Node3D"]
+script = ExtResource("1_csatd")

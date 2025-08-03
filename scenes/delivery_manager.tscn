@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://jqmk25hlac3l"]
+
+[ext_resource type="Script" uid="uid://cjqn5oas0oiwv" path="res://Vamp-Surv-Clone/scenes/delivery_manager.gd" id="1_52rjl"]
+
+[node name="DeliveryManager" type="Node3D"]
+script = ExtResource("1_52rjl")

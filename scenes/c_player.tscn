@@ -1,0 +1,54 @@
+[gd_scene load_steps=11 format=3 uid="uid://cqp2bjxetdh80"]
+
+[ext_resource type="Script" uid="uid://jw1fdx4b8nqr" path="res://Vamp-Surv-Clone/scripts/c_player.gd" id="1_71e5c"]
+[ext_resource type="PackedScene" uid="uid://76xxwwyjsaq0" path="res://Vamp-Surv-Clone/scenes/components/player_input/player_input_component.tscn" id="1_gnw3x"]
+[ext_resource type="PackedScene" uid="uid://5kb13uxwcgx8" path="res://Vamp-Surv-Clone/scenes/components/movement_component/MovementComponent.tscn" id="2_008mh"]
+[ext_resource type="PackedScene" uid="uid://bae3nr7oy3a6y" path="res://Vamp-Surv-Clone/scenes/components/inventory_component/inventory_component.tscn" id="3_63f0v"]
+[ext_resource type="PackedScene" uid="uid://drop7ea6dbqym" path="res://Vamp-Surv-Clone/scenes/components/head_component/HeadComponent.tscn" id="3_71e5c"]
+[ext_resource type="PackedScene" uid="uid://dsx4e7ahkul5s" path="res://Vamp-Surv-Clone/scenes/components/interactor_component/InteractorComponent.tscn" id="5_ef8uw"]
+[ext_resource type="PackedScene" uid="uid://ct2fdb73crtfv" path="res://Vamp-Surv-Clone/scenes/components/hitbox_component/HitboxComponent.tscn" id="5_n7s7a"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ef8uw"]
+radius = 0.411121
+height = 1.81743
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n7s7a"]
+albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ef8uw"]
+radius = 0.4
+height = 1.8
+
+[node name="cPlayer" type="Node3D"]
+script = ExtResource("1_71e5c")
+
+[node name="PlayerInputComponent" parent="." instance=ExtResource("1_gnw3x")]
+
+[node name="InventoryComponent" parent="PlayerInputComponent" instance=ExtResource("3_63f0v")]
+
+[node name="MovementComponent" parent="PlayerInputComponent" instance=ExtResource("2_008mh")]
+collision_layer = 2
+collision_mask = 7
+can_move = true
+has_gravity = true
+can_jump = true
+can_sprint = true
+
+[node name="HeadComponent" parent="PlayerInputComponent/MovementComponent" instance=ExtResource("3_71e5c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.479325, 0)
+
+[node name="Camera3D" type="Camera3D" parent="PlayerInputComponent/MovementComponent/HeadComponent"]
+
+[node name="InteractorComponent" parent="PlayerInputComponent/MovementComponent/HeadComponent/Camera3D" instance=ExtResource("5_ef8uw")]
+
+[node name="Hand" type="Marker3D" parent="PlayerInputComponent/MovementComponent/HeadComponent/Camera3D/InteractorComponent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.000975013, -1.69383)
+
+[node name="HitboxComponent" parent="PlayerInputComponent/MovementComponent" instance=ExtResource("5_n7s7a")]
+shape = SubResource("CapsuleShape3D_ef8uw")
+
+[node name="Mesh" type="MeshInstance3D" parent="PlayerInputComponent/MovementComponent"]
+material_override = SubResource("StandardMaterial3D_n7s7a")
+cast_shadow = 0
+mesh = SubResource("CapsuleMesh_ef8uw")
+skeleton = NodePath("../../../..")

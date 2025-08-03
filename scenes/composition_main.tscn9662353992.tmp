@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbuf5byh63r0t"]
+
+[ext_resource type="PackedScene" uid="uid://cqp2bjxetdh80" path="res://Vamp-Surv-Clone/scenes/c_player.tscn" id="1_7mang"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qppfl"]
+sky_top_color = Color(0.237496, 0.460538, 0.693233, 1)
+sky_horizon_color = Color(0.61175, 0.65976, 0.708934, 1)
+ground_horizon_color = Color(0.61175, 0.65976, 0.708934, 1)
+
+[sub_resource type="Sky" id="Sky_4ice2"]
+sky_material = SubResource("ProceduralSkyMaterial_qppfl")
+
+[sub_resource type="Environment" id="Environment_7mang"]
+background_mode = 2
+sky = SubResource("Sky_4ice2")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qppfl"]
+albedo_color = Color(0.191666, 0.352051, 0.24599, 1)
+
+[node name="composition_main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7mang")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866024, -0.432052, 0.251662, 0.00166268, 0.50083, 0.865544, -0.5, 0.75, -0.433012, -106.057, 74.1284, 0)
+shadow_enabled = true
+
+[node name="floor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.061079, 0, -0.626778)
+use_collision = true
+size = Vector3(26.3044, 1, 28.0703)
+material = SubResource("StandardMaterial3D_qppfl")
+metadata/_edit_lock_ = true
+
+[node name="cPlayer" parent="." instance=ExtResource("1_7mang")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.40005, 0)

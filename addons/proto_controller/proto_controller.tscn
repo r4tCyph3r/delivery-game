@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bs72ogkvdd7d6"]
+[gd_scene load_steps=5 format=3 uid="uid://bs72ogkvdd7d6"]
 
-[ext_resource type="PackedScene" uid="uid://dfgy8cgabcha0" path="res://Vamp-Surv-Clone/scenes/interaction/interaction_controller.tscn" id="2_8476e"]
-[ext_resource type="Texture2D" uid="uid://d0mgmiqn2uj7w" path="res://Vamp-Surv-Clone/asset_lib/hud/simple_dot.png" id="3_8476e"]
+[ext_resource type="Script" uid="uid://2pcr2hv3h64" path="res://Vamp-Surv-Clone/addons/proto_controller/proto_controller.gd" id="1_bctyb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
 albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
@@ -14,8 +13,8 @@ height = 1.8
 radius = 0.4
 height = 1.8
 
-[node name="ProtoController" type="CharacterBody3D" groups=["player"]]
-collision_layer = 2
+[node name="ProtoController" type="CharacterBody3D"]
+script = ExtResource("1_bctyb")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
@@ -31,40 +30,3 @@ shape = SubResource("CapsuleShape3D_iof21")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
-
-[node name="interaction_controller" parent="Head/Camera3D" instance=ExtResource("2_8476e")]
-script = null
-
-[node name="HUD" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 648.0
-mouse_filter = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="money_label" type="Label" parent="HUD"]
-layout_mode = 0
-offset_right = 125.0
-offset_bottom = 32.0
-text = "Money: "
-metadata/_edit_use_anchors_ = true
-
-[node name="crosshair" type="TextureRect" parent="HUD"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -26.0
-offset_top = -27.0
-offset_right = -1.0
-offset_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2, 2)
-texture = ExtResource("3_8476e")
-expand_mode = 1
-stretch_mode = 5
-metadata/_edit_use_anchors_ = true

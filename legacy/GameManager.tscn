@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpf1ehfg4oqrb"]
+
+[ext_resource type="Script" uid="uid://dejy6tbglcmri" path="res://Vamp-Surv-Clone/legacy/game_manager.gd" id="1_he1x0"]
+
+[node name="GameManager" type="Node3D"]
+script = ExtResource("1_he1x0")
+
+[node name="PackageTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="PackageTimer" to="." method="_on_package_timer_timeout"]
