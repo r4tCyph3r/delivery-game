@@ -43,7 +43,7 @@ func toggle_grabbed_object(object):
 		else:
 			print('[Error] Grab Object Failed')
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if grabbed_object != null:
 		var a = grabbed_object.global_transform.origin
 		var b = hand.global_transform.origin

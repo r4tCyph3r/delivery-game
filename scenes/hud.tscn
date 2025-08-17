@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxefonr4ft2kw"]
+
+[ext_resource type="PackedScene" uid="uid://cckqb688abpos" path="res://Vamp-Surv-Clone/scenes/components/ui_counter_component/UI_CounterComponent.tscn" id="1_2fkii"]
+[ext_resource type="Script" uid="uid://xn1mkokqq3j1" path="res://Vamp-Surv-Clone/scenes/hud_control.gd" id="1_4wdl2"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_4wdl2")
+
+[node name="MoneyCounter" parent="." instance=ExtResource("1_2fkii")]
+layout_mode = 0

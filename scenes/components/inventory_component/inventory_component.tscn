@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bae3nr7oy3a6y"]
+[gd_scene load_steps=3 format=3 uid="uid://bae3nr7oy3a6y"]
 
 [ext_resource type="Script" uid="uid://dqjik3cyopvh5" path="res://Vamp-Surv-Clone/scenes/components/inventory_component/inventory_component.gd" id="1_uh8q5"]
+[ext_resource type="PackedScene" uid="uid://bot2n630o12hs" path="res://Vamp-Surv-Clone/scenes/components/wallet_component/wallet_component.tscn" id="3_y26yw"]
 
 [node name="InventoryComponent" type="Node3D"]
 script = ExtResource("1_uh8q5")
+
+[node name="WalletComponent" parent="." instance=ExtResource("3_y26yw")]

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PackageStats" load_steps=4 format=3 uid="uid://cxldrhtum6q0r"]
+
+[ext_resource type="Shape3D" uid="uid://bx2m4sicyiax8" path="res://Vamp-Surv-Clone/resources/deliverables/tv/TVCollider.tres" id="1_avjye"]
+[ext_resource type="Script" uid="uid://ds4u3pro4ncg5" path="res://Vamp-Surv-Clone/resources/deliverables/package_stats.gd" id="1_v2o3k"]
+[ext_resource type="BoxMesh" uid="uid://pc667r8n1cuv" path="res://Vamp-Surv-Clone/resources/deliverables/tv/TVMesh.tres" id="2_2i8ui"]
+
+
+[resource]
+script = ExtResource("1_v2o3k")
+package_name = "Television"
+interact_type = 1
+weight = 10.0
+value = 30.0
+mesh = ExtResource("2_2i8ui")
+collider = ExtResource("1_avjye")
+interact_prompt = "Pickup"
+can_interact = true
+can_deliver = true
+metadata/_custom_type_script = "uid://ds4u3pro4ncg5"

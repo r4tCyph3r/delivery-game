@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://c8i0s5bhqdn5u"]
+
+[node name="QuestComponent" type="NinePatchRect"]
+anchors_preset = -1
+anchor_top = 0.25
+anchor_bottom = 0.25
+offset_top = -41.5
+offset_right = 163.0
+offset_bottom = 41.5
+grow_vertical = 2
+axis_stretch_horizontal = 2
+
+[node name="Item" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.313253
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0, 0.756863, 0, 1)
+theme_override_font_sizes/normal_font_size = 15
+text = "Deliver 1x TV"
+scroll_active = false
+autowrap_mode = 1
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Location" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.313253
+anchor_right = 1.0
+anchor_bottom = 0.60241
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 15
+text = "Swineland Grove"
+scroll_active = false
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

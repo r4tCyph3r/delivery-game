@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbx3ehugji0uj"]
+
+[ext_resource type="Script" uid="uid://dqrr0idvt6yut" path="res://Vamp-Surv-Clone/scenes/debug_button.gd" id="1_b3y0q"]
+[ext_resource type="PackedScene" uid="uid://xl1w87pnpkel" path="res://Vamp-Surv-Clone/scenes/components/interaction_component/interaction_component.tscn" id="2_oind8"]
+[ext_resource type="PackedScene" uid="uid://ct2fdb73crtfv" path="res://Vamp-Surv-Clone/scenes/components/hitbox_component/HitboxComponent.tscn" id="3_h8pwc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3bdjv"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iubxm"]
+albedo_color = Color(0.3783, 0.473945, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eovil"]
+size = Vector3(0.209961, 0.210938, 0.216553)
+
+[node name="Debug_Button" type="StaticBody3D" groups=["RequestLocations"]]
+script = ExtResource("1_b3y0q")
+
+[node name="InteractionComponent" parent="." instance=ExtResource("2_oind8")]
+interact_prompt = "Press"
+can_interact = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_3bdjv")
+surface_material_override/0 = SubResource("StandardMaterial3D_iubxm")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("3_h8pwc")]
+shape = SubResource("BoxShape3D_eovil")

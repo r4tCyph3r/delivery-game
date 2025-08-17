@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cqp2bjxetdh80"]
+[gd_scene load_steps=12 format=3 uid="uid://cqp2bjxetdh80"]
 
 [ext_resource type="Script" uid="uid://jw1fdx4b8nqr" path="res://Vamp-Surv-Clone/scripts/c_player.gd" id="1_71e5c"]
 [ext_resource type="PackedScene" uid="uid://76xxwwyjsaq0" path="res://Vamp-Surv-Clone/scenes/components/player_input/player_input_component.tscn" id="1_gnw3x"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://drop7ea6dbqym" path="res://Vamp-Surv-Clone/scenes/components/head_component/HeadComponent.tscn" id="3_71e5c"]
 [ext_resource type="PackedScene" uid="uid://dsx4e7ahkul5s" path="res://Vamp-Surv-Clone/scenes/components/interactor_component/InteractorComponent.tscn" id="5_ef8uw"]
 [ext_resource type="PackedScene" uid="uid://ct2fdb73crtfv" path="res://Vamp-Surv-Clone/scenes/components/hitbox_component/HitboxComponent.tscn" id="5_n7s7a"]
+[ext_resource type="PackedScene" uid="uid://bxefonr4ft2kw" path="res://Vamp-Surv-Clone/scenes/hud.tscn" id="8_tf4s7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ef8uw"]
 radius = 0.411121
@@ -22,9 +23,9 @@ height = 1.8
 [node name="cPlayer" type="Node3D"]
 script = ExtResource("1_71e5c")
 
-[node name="PlayerInputComponent" parent="." instance=ExtResource("1_gnw3x")]
+[node name="InventoryComponent" parent="." instance=ExtResource("3_63f0v")]
 
-[node name="InventoryComponent" parent="PlayerInputComponent" instance=ExtResource("3_63f0v")]
+[node name="PlayerInputComponent" parent="." instance=ExtResource("1_gnw3x")]
 
 [node name="MovementComponent" parent="PlayerInputComponent" instance=ExtResource("2_008mh")]
 collision_layer = 2
@@ -52,3 +53,7 @@ material_override = SubResource("StandardMaterial3D_n7s7a")
 cast_shadow = 0
 mesh = SubResource("CapsuleMesh_ef8uw")
 skeleton = NodePath("../../../..")
+
+[node name="HUDCanvasLayer" type="CanvasLayer" parent="PlayerInputComponent/MovementComponent"]
+
+[node name="HUD" parent="PlayerInputComponent/MovementComponent/HUDCanvasLayer" instance=ExtResource("8_tf4s7")]

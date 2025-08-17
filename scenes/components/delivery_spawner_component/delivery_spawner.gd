@@ -3,9 +3,9 @@ extends Node3D
 var package_scene : PackedScene = preload('res://Vamp-Surv-Clone/scenes/packages/DeliverableItem.tscn')
 
 var package_stats : Array[PackageStats] = [
-	preload("res://Vamp-Surv-Clone/resources/deliverables/package_parcel.tres"),
-	preload('res://Vamp-Surv-Clone/resources/deliverables/package_newspaper.tres'),
-	preload('res://Vamp-Surv-Clone/resources/deliverables/package_tv.tres')
+	preload("res://Vamp-Surv-Clone/resources/deliverables/newspaper/package_newspaper.tres"),
+	preload("res://Vamp-Surv-Clone/resources/deliverables/parcel/package_parcel.tres"),
+	preload("res://Vamp-Surv-Clone/resources/deliverables/tv/package_tv.tres")
 ]
 
 func new_package():

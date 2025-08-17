@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bot2n630o12hs"]
+
+[ext_resource type="Script" uid="uid://dy4cqkep2i53b" path="res://Vamp-Surv-Clone/scenes/components/wallet_component/wallet_component.gd" id="1_hm5et"]
+
+[node name="WalletComponent" type="Node3D"]
+script = ExtResource("1_hm5et")

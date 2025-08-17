@@ -2,8 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://bj6lbscc7k61s" path="res://Vamp-Surv-Clone/scenes/components/deliverable_component/deliverable_component.tscn" id="1_oxaw5"]
 [ext_resource type="PackedScene" uid="uid://ct2fdb73crtfv" path="res://Vamp-Surv-Clone/scenes/components/hitbox_component/HitboxComponent.tscn" id="2_mm8m6"]
-[ext_resource type="Shape3D" uid="uid://bx2m4sicyiax8" path="res://Vamp-Surv-Clone/scenes/packages/3D/TVCollider.tres" id="3_82go0"]
-[ext_resource type="BoxMesh" uid="uid://pc667r8n1cuv" path="res://Vamp-Surv-Clone/scenes/packages/3D/TVMesh.tres" id="3_mm8m6"]
+[ext_resource type="Shape3D" uid="uid://bx2m4sicyiax8" path="res://Vamp-Surv-Clone/resources/deliverables/tv/TVCollider.tres" id="3_82go0"]
+[ext_resource type="BoxMesh" uid="uid://pc667r8n1cuv" path="res://Vamp-Surv-Clone/resources/deliverables/tv/TVMesh.tres" id="3_mm8m6"]
+
 
 [node name="TV" type="RigidBody3D"]
 collision_layer = 4

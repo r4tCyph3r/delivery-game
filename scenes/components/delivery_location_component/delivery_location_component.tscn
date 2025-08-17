@@ -22,3 +22,10 @@ monitorable = false
 [node name="DeliveryAreaShape" type="CollisionShape3D" parent="DeliveryArea"]
 shape = SubResource("CylinderShape3D_lrm53")
 debug_color = Color(0.933333, 0.6, 0.701961, 0.894118)
+
+[node name="HouseAddressLabel" type="Label3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.43099, -0.0439173)
+billboard = 1
+no_depth_test = true
+text = "Error if seen kekw"
+font_size = 72
